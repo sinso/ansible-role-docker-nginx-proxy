@@ -8,5 +8,5 @@
     volumes:
       - "{{ nginx_data_folder }}:/etc/nginx/conf.d"
     ports:
-      - 80
-      - 443
+      - 80:80
+      - 443:443
