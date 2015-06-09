@@ -19,8 +19,8 @@
 #
 
 - name: configuring nginx-gen template
-  template:
-    src: nginx.tmpl.j2
+  copy:
+    src: nginx.tmpl
     dest: /etc/docker-gen/templates/nginx.tmpl
     owner: root
     group: root
