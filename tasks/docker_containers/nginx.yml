@@ -1,0 +1,12 @@
+---
+- name: "ensure nginx container is {{ state }}"
+  docker:
+    name: "nginx"
+    image: "{{ docker_images.nginx }}"
+    state: "{{ state }}"
+    restart_policy: always
+    volumes:
+      - "{{ nginx_data_folder }}:/etc/nginx/conf.d"
+    ports:
+      - 80
+      - 443

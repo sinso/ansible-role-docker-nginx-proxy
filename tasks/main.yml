@@ -1,0 +1,34 @@
+---
+#
+# Create required directories.
+#
+
+- name: ensure required directories for nginx and nginx-gen exist
+  file:
+    state: directory
+    path: "{{ item }}"
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - "{{ nginx_data_folder }}"
+    - "{{ nginx_gen_data_folder }}"
+
+#
+# Configure nginx-gen.
+#
+
+- name: configuring nginx-gen template
+  template:
+    src: nginx.tmpl.j2
+    dest: /etc/docker-gen/templates/nginx.tmpl
+    owner: root
+    group: root
+    mode: 0640
+
+#
+# Ensure all docker containers are started
+#
+
+- include: docker_containers/nginx.yml state=started
+- include: docker_containers/nginx-gen.yml state=started
