@@ -21,7 +21,7 @@
 - name: configuring nginx-gen template
   copy:
     src: nginx.tmpl
-    dest: /etc/docker-gen/templates/nginx.tmpl
+    dest: "{{ nginx_gen_data_folder }}nginx.tmpl"
     owner: root
     group: root
     mode: 0640
