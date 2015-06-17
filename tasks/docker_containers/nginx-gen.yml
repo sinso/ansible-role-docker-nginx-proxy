@@ -2,12 +2,12 @@
 - name: "ensure nginx-gen container is {{ state }}"
   docker:
     name: "nginx-gen"
-    image: "{{ docker_images.nginx_gen }}"
+    image: "{{ docker_nginx_proxy_docker_images.nginx_gen }}"
     state: "{{ state }}"
     restart_policy: always
     volumes_from:
       - nginx
     volumes:
-      - "{{ nginx_gen_data_folder }}:/etc/docker-gen/templates"
+      - "{{ docker_nginx_proxy_nginx_gen_data_folder }}:/etc/docker-gen/templates"
       - /var/run/docker.sock:/tmp/docker.sock
     command: -notify-sighup nginx -watch --only-exposed /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
