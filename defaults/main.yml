@@ -1,8 +1,8 @@
 ---
-data_root_folder: /opt/
-nginx_data_folder: "{{ data_root_folder }}nginx/"
-nginx_gen_data_folder: "{{ data_root_folder }}nginx-gen/"
+docker_nginx_proxy_data_root_folder: /opt/
+docker_nginx_proxy_nginx_data_folder: "{{ docker_nginx_proxy_data_root_folder }}nginx/"
+docker_nginx_proxy_nginx_gen_data_folder: "{{ docker_nginx_proxy_data_root_folder }}nginx-gen/"
 
-docker_images:
+docker_nginx_proxy_docker_images:
   'nginx': 'nginx'
   'nginx_gen': 'jwilder/docker-gen'
