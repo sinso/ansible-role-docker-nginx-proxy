@@ -7,6 +7,7 @@
     restart_policy: always
     volumes:
       - "{{ docker_nginx_proxy_nginx_data_folder }}:/etc/nginx/conf.d"
+      - "{{ docker_nginx_proxy_nginx_ssl_certificates_folder }}:/etc/nginx/certs"
     ports:
       - 80:80
       - 443:443

@@ -1,6 +1,7 @@
 ---
 docker_nginx_proxy_data_root_folder: /opt/
 docker_nginx_proxy_nginx_data_folder: "{{ docker_nginx_proxy_data_root_folder }}nginx/"
+docker_nginx_proxy_nginx_ssl_certificates_folder: "{{ docker_nginx_proxy_data_root_folder }}ssl-certificates/"
 docker_nginx_proxy_nginx_gen_data_folder: "{{ docker_nginx_proxy_data_root_folder }}nginx-gen/"
 
 docker_nginx_proxy_docker_images:

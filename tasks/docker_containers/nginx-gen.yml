@@ -9,5 +9,6 @@
       - nginx
     volumes:
       - "{{ docker_nginx_proxy_nginx_gen_data_folder }}:/etc/docker-gen/templates"
+      - "{{ docker_nginx_proxy_nginx_ssl_certificates_folder }}:/etc/nginx/certs"
       - /var/run/docker.sock:/tmp/docker.sock
     command: -notify-sighup nginx -watch --only-exposed /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
